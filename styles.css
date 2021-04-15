@@ -1,0 +1,130 @@
+body {
+    display: grid;
+    grid-template-columns: 1fr 1000px 1fr;
+    grid-template-rows: 50px 50px 20px auto 200px auto 1fr;
+    grid-template-areas: 
+        ". . ."                 
+        ". div-header ."
+        ". . ."
+        ". div-choice ."
+        ". div-buttons ."
+        ". div-score ."
+        ". div-result .";
+    background-color: bisque;
+}
+
+
+#div-header {
+    grid-area: div-header;
+    justify-content: center;
+    align-self: center;
+    margin: auto;
+    font-family: Impact, 'Arial Narrow Bold', sans-serif;
+    font-size: 30px;
+
+}
+
+#div-choice {
+    grid-area: div-choice;
+    justify-content: center;
+    align-self: center;
+    margin: auto;
+    font-family: fantasy;
+    font-size: 18px;
+
+}
+
+#div-buttons {
+    grid-area: div-buttons;
+    justify-content: center;
+    align-self: center;
+    margin: auto;   
+    
+}
+
+
+#rock {
+    height: 150px;
+    width: 150px;
+    font-weight: bold;
+    font-size: 30px;
+    text-align: center;
+    margin-right: 30px;
+    transition: 100ms;
+    cursor: pointer;
+    background-image: url("rock.png");
+    background-size: cover;
+    background-position: center center;
+
+    
+    
+}
+#rock:hover {
+    transform: scale(1.2);
+}
+#paper {
+    height: 150px;
+    width: 150px;
+    font-weight: bold;
+    font-size: 30px;
+    text-align: center;
+    margin-right: 30px;
+    transition: 100ms;
+    cursor: pointer;
+    background-image: url("paper.png");
+    background-size: cover;
+    background-position: center center;
+}
+#paper:hover {
+    transform: scale(1.2);
+}
+
+#scissors {
+    height: 150px;
+    width: 150px;
+    font-weight: bold;
+    font-size: 30px;
+    text-align: center;
+    transition: 100ms;
+    cursor: pointer;
+    background-image: url("scissors.png");
+    background-size: cover;
+    background-position: center center;
+}
+#scissors:hover {
+    transform: scale(1.2);
+}
+
+#div-score {
+    display: flex;
+    grid-area: div-score;
+    justify-content: center;
+
+}
+
+h3,ul {
+    margin-top: 10px;
+}
+#computer-choice, #player-choice {
+    width: 100px;
+    justify-self: center;
+    
+}
+
+#div-result {
+    grid-area: div-result;
+    justify-content: center;
+    align-self: center;
+    margin: auto;
+    padding-top: 20px;
+    justify-items: center;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 25px;
+    font-weight: bolder;
+}
+
+#player, #computer {
+    list-style: none;
+    margin-right: auto;
+}
