@@ -10,6 +10,7 @@ window.onload = function(){
     document.getElementById("scissors").onclick = player;
 
     document.getElementById("div-result").innerHTML = `TOTAL CHANCES : ${totalChances}`;
+    document.getElementById("refresh-btn").hidden = true;
     
 }
 
@@ -47,7 +48,7 @@ function player() {
         plist.appendChild(pli);
     }
     if(currentCount === totalChances){
-        
+        document.getElementById("refresh-btn").hidden = false;
         if(computerCount > playerCount){
             document.getElementById("div-result").innerHTML = `Computer Wins... [ Computer Score : ${computerCount} AND Your Score : ${playerCount} ]`;
         }
@@ -97,6 +98,10 @@ function computerPlay(){
     return gameOptions[Math.floor(Math.random()*gameOptions.length)];
    
     
+}
+
+function refreshPage() {
+    location.reload();
 }
 
 

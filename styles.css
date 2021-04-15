@@ -1,7 +1,7 @@
 body {
     display: grid;
     grid-template-columns: 1fr 1000px 1fr;
-    grid-template-rows: 50px 50px 20px auto 200px auto 1fr;
+    grid-template-rows: 50px 50px 20px auto 200px auto 1fr 1fr;
     grid-template-areas: 
         ". . ."                 
         ". div-header ."
@@ -9,7 +9,8 @@ body {
         ". div-choice ."
         ". div-buttons ."
         ". div-score ."
-        ". div-result .";
+        ". div-result ."
+        ". div-refresh-msg .";
     background-color: bisque;
 }
 
@@ -127,4 +128,14 @@ h3,ul {
 #player, #computer {
     list-style: none;
     margin-right: auto;
+}
+
+#div-refresh-msg {
+    grid-area: div-refresh-msg;
+    justify-content: center;
+    margin: auto;
+}
+#refresh-btn {
+    font-size: large;
+    height: 40px;
 }
