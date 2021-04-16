@@ -57,12 +57,12 @@ function player() {
     if(currentCount === totalChances)
     {
         document.getElementById("refresh-btn").hidden = false;
-        getResult(computerCount,playerCount);
+        printResult(computerCount,playerCount);
     }
         
 }
 
-function getResult(computerCount,playerCount){
+function printResult(computerCount,playerCount){
 
     if(computerCount > playerCount){
         document.getElementById("div-result").innerHTML = `Computer Wins... [ Computer Score : ${computerCount} AND Your Score : ${playerCount} ]`;
