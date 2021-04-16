@@ -1,24 +1,21 @@
-var computerCount = 0;
-var playerCount = 0;
-var totalChances = 3;
-var currentCount = 0;
+let totalChances = 3;
+let currentCount = 0;
+let computerCount = 0;
+let playerCount = 0;
 
 window.onload = function(){
-    
-    document.getElementById("rock").onclick = player;
-    document.getElementById("paper").onclick = player;
-    document.getElementById("scissors").onclick = player;
+        
+    document.getElementById("Rock").onclick = player;
+    document.getElementById("Paper").onclick = player;
+    document.getElementById("Scissors").onclick = player;
 
     document.getElementById("div-result").innerHTML = `TOTAL CHANCES : ${totalChances}`;
     document.getElementById("refresh-btn").hidden = true;
-    
 }
+
 
 function player() {
 
-    let compChoice;
-    let playChoice;
-    
     let clist = document.getElementById("computer");
     let plist = document.getElementById("player");
 
@@ -31,70 +28,82 @@ function player() {
     if(currentCount < totalChances){
 
         currentCount++;
-        let playerChoice = this.id;
-        let computerChoice = computerPlay(); 
-        playGround(playerChoice,computerChoice);  
-        console.log("You : "+playerChoice);
-        console.log("Computer : "+computerChoice);
-      
-    
-        compChoice = computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1);
-        playChoice = playerChoice.charAt(0).toUpperCase() + playerChoice.slice(1);
-    
-        cli.appendChild(document.createTextNode(compChoice));
+        let playerSelection = this.id;
+        let computerSelection = computerPlay(); 
+
+        result = playGround(playerSelection,computerSelection);  
+        
+       // console.log("You : "+playerChoice);
+       // console.log("Computer : "+computerChoice);
+        console.log(result);
+        
+        switch(result){
+            case 0: break;
+            case 1: ++playerCount;
+                    break;
+            
+            case 2: ++computerCount;
+                    break;
+        }
+
+        cli.appendChild(document.createTextNode(computerSelection));
         clist.appendChild(cli);
 
-        pli.appendChild(document.createTextNode(playChoice));
-        plist.appendChild(pli);
+        pli.appendChild(document.createTextNode(playerSelection));
+        plist.appendChild(pli);   
+       
     }
-    if(currentCount === totalChances){
+    
+    if(currentCount === totalChances)
+    {
         document.getElementById("refresh-btn").hidden = false;
-        if(computerCount > playerCount){
-            document.getElementById("div-result").innerHTML = `Computer Wins... [ Computer Score : ${computerCount} AND Your Score : ${playerCount} ]`;
-        }
-        else if(computerCount < playerCount){
-            document.getElementById("div-result").innerHTML = `You Win... [ Computer Score : ${computerCount} AND Your Score : ${playerCount} ]`;
-        }
-        else
-            document.getElementById("div-result").innerHTML = `Match Draw... [ Computer Score : ${computerCount} AND Your Score : ${playerCount} ]`;
+        getResult(computerCount,playerCount);
     }
+        
+}
+
+function getResult(computerCount,playerCount){
+
+    if(computerCount > playerCount){
+        document.getElementById("div-result").innerHTML = `Computer Wins... [ Computer Score : ${computerCount} AND Your Score : ${playerCount} ]`;
+    }
+    else if(computerCount < playerCount){
+        document.getElementById("div-result").innerHTML = `You Win... [ Computer Score : ${computerCount} AND Your Score : ${playerCount} ]`;
+    }
+    else
+        document.getElementById("div-result").innerHTML = `Match Draw... [ Computer Score : ${computerCount} AND Your Score : ${playerCount} ]`;
 }
 
 function playGround(playerSelection,computerSelection){
-    
-        if(playerSelection === computerSelection){
-            console.log("Tie...");
-            return 0;
+    //    console.log(playerSelection);
+    //    console.log(computerSelection);
+
+    if(playerSelection === "Rock"){
+        if(computerSelection === "Scissors"){
+            return 1;
         }
-        if(playerSelection === "rock"){
-            if(computerSelection === "scissors"){
-                playerCount++;
-            }
-            else{
-               computerCount++;
-            }
-        }
-        if(playerSelection === "paper"){
-            if(computerSelection === "rock"){
-               playerCount++;
-            }
-            else{
-                computerCount++;
-            }          
-        }
-        if(playerSelection === "scissors"){
-            if(computerSelection === "rock"){
-                computerCount++;
-            }
-            else{
-                playerCount++;
-            }
-        }
+        else
+            return 2;
+    }
+    else if(playerSelection === "Paper"){
+        if(computerSelection === "Rock")
+            return 1;
+        else
+            return 2;
+    }          
+    else if(playerSelection === "Scissors"){
+        if(computerSelection === "Rock")
+            return 2;
+        else
+            return 1;
+    }
+    else
+        return 0;
     
 }
 
 function computerPlay(){
-    let gameOptions = ['rock',"paper","scissors"];
+    let gameOptions = ['Rock',"Paper","Scissors"];
     return gameOptions[Math.floor(Math.random()*gameOptions.length)];
    
     

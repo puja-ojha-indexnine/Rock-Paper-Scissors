@@ -44,7 +44,7 @@ body {
 }
 
 
-#rock {
+#Rock {
     height: 150px;
     width: 150px;
     font-weight: bold;
@@ -60,10 +60,10 @@ body {
     
     
 }
-#rock:hover {
+#Rock:hover {
     transform: scale(1.2);
 }
-#paper {
+#Paper {
     height: 150px;
     width: 150px;
     font-weight: bold;
@@ -76,11 +76,11 @@ body {
     background-size: cover;
     background-position: center center;
 }
-#paper:hover {
+#Paper:hover {
     transform: scale(1.2);
 }
 
-#scissors {
+#Scissors {
     height: 150px;
     width: 150px;
     font-weight: bold;
@@ -92,7 +92,7 @@ body {
     background-size: cover;
     background-position: center center;
 }
-#scissors:hover {
+#Scissors:hover {
     transform: scale(1.2);
 }
 
