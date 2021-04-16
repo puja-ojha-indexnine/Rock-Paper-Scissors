@@ -35,7 +35,7 @@ function player() {
         
        // console.log("You : "+playerChoice);
        // console.log("Computer : "+computerChoice);
-        console.log(result);
+       // console.log(result);
         
         switch(result){
             case 0: break;
