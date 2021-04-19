@@ -9,7 +9,7 @@ window.onload = function(){
     document.getElementById("Paper").onclick = player;
     document.getElementById("Scissors").onclick = player;
 
-    document.getElementById("div-result").innerHTML = `TOTAL CHANCES : ${totalChances}`;
+    document.getElementById("div-result").innerText = `TOTAL CHANCES : ${totalChances}`;
     document.getElementById("refresh-btn").hidden = true;
 }
 
@@ -23,7 +23,7 @@ function player() {
     let pli = document.createElement("li"); 
     let result = '';
 
-    document.getElementById("div-result").innerHTML = '';
+    document.getElementById("div-result").innerText = '';
 
     if(currentCount < totalChances){
 
@@ -65,13 +65,13 @@ function player() {
 function printResult(computerCount,playerCount){
 
     if(computerCount > playerCount){
-        document.getElementById("div-result").innerHTML = `Computer Wins... [ Computer Score : ${computerCount} AND Your Score : ${playerCount} ]`;
+        document.getElementById("div-result").innerText = `Computer Wins... [ Computer Score : ${computerCount} AND Your Score : ${playerCount} ]`;
     }
     else if(computerCount < playerCount){
-        document.getElementById("div-result").innerHTML = `You Win... [ Computer Score : ${computerCount} AND Your Score : ${playerCount} ]`;
+        document.getElementById("div-result").innerText = `You Win... [ Computer Score : ${computerCount} AND Your Score : ${playerCount} ]`;
     }
     else
-        document.getElementById("div-result").innerHTML = `Match Draw... [ Computer Score : ${computerCount} AND Your Score : ${playerCount} ]`;
+        document.getElementById("div-result").innerText = `Match Draw... [ Computer Score : ${computerCount} AND Your Score : ${playerCount} ]`;
 }
 
 function playGround(playerSelection,computerSelection){
